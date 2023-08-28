@@ -1,0 +1,68 @@
+# XcodeGen https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md
+name: Runner
+fileGroups:
+  - project.yml
+options:
+  bundleIdPrefix: com.example
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: 15.0
+configs:
+  Debug-dev: debug
+  Debug-prod: debug
+  Release-dev: release
+  Release-prod: release
+targets:
+  Runner:
+    name: xcodegen
+    type: application
+    platform: iOS
+    configFiles:
+      Debug-dev: Flutter/Debug.xcconfig
+      Debug-prod: Flutter/Debug.xcconfig
+      Release-dev: Flutter/Release.xcconfig
+      Release-prod: Flutter/Release.xcconfig
+    settings:
+      base:
+        SWIFT_OBJC_BRIDGING_HEADER:
+          - Runner/Runner-Bridging-Header.h
+    preBuildScripts:
+      - script: "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build"
+        name: Flutter Build
+    postBuildScripts:
+      - script: "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin"
+        name: Thin Binary
+    scheme:
+      configVariants:
+        - dev
+        - prod
+      prod:
+        build:
+          targets:
+            Runner: all
+        run:
+          config: Debug-prod
+        profile:
+          config: Debug-prod
+        analyze:
+          config: Release-prod
+        archive:
+          config: Release-prod
+      dev:
+        build:
+          targets:
+            Runner: all
+        run:
+          config: Debug-dev
+        profile:
+          config: Debug-dev
+        analyze:
+          config: Release-dev
+        archive:
+          config: Release-dev
+    sources:
+      - Runner/
+      - Flutter/AppFrameworkInfo.plist
+      - Flutter/Generated.xcconfig
+      - Flutter/Debug.xcconfig
+      - Flutter/Release.xcconfig
