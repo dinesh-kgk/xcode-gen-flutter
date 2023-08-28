@@ -285,7 +285,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.xcodegen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.app.prod;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = (
 					"Runner/Runner-Bridging-Header.h",
@@ -305,7 +305,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.xcodegen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.app.dev;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = (
 					"Runner/Runner-Bridging-Header.h",
@@ -381,7 +381,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.xcodegen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.app.prod;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = (
 					"Runner/Runner-Bridging-Header.h",
@@ -520,7 +520,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.xcodegen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.app.dev;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = (
 					"Runner/Runner-Bridging-Header.h",

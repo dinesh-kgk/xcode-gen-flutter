@@ -26,6 +26,15 @@ targets:
       base:
         SWIFT_OBJC_BRIDGING_HEADER:
           - Runner/Runner-Bridging-Header.h
+      configs:
+        Debug-dev:
+          PRODUCT_BUNDLE_IDENTIFIER: com.tomtom.app.dev
+        Debug-prod:
+          PRODUCT_BUNDLE_IDENTIFIER: com.tomtom.app.prod
+        Release-dev:
+          PRODUCT_BUNDLE_IDENTIFIER: com.tomtom.app.dev
+        Release-prod:
+          PRODUCT_BUNDLE_IDENTIFIER: com.tomtom.app.prod
     preBuildScripts:
       - script: "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build"
         name: Flutter Build
@@ -60,6 +69,7 @@ targets:
           config: Release-dev
         archive:
           config: Release-dev
+
     sources:
       - Runner/
       - Flutter/AppFrameworkInfo.plist
